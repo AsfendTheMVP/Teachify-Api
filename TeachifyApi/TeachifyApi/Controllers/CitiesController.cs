@@ -15,105 +15,29 @@ namespace TeachifyApi.Controllers
 {
     public class CitiesController : ApiController
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+
+        private readonly List<City> _cities = new List<City>()
+        {
+            new City() {Name = "Alabama"},
+            new City() {Name = "Alaska"},
+            new City() {Name = "California"},
+            new City() {Name = "Florida"},
+            new City() {Name = "Georgia"},
+            new City() {Name = "Indiana"},
+            new City() {Name = "Louisiana"},
+            new City() {Name = "Mississippi"},
+            new City() {Name = "New Mexico"},
+            new City() {Name = "New York"},
+            new City() {Name = "Pennsylvania"},
+            new City() {Name = "Texas"},
+            new City() {Name = "Washington"},
+        };
 
         // GET: api/Cities
         public IQueryable<City> GetCities()
         {
-            return db.Cities;
+            return _cities.AsQueryable();
         }
 
-        // GET: api/Cities/5
-        [ResponseType(typeof(City))]
-        public async Task<IHttpActionResult> GetCity(int id)
-        {
-            City city = await db.Cities.FindAsync(id);
-            if (city == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(city);
-        }
-
-        // PUT: api/Cities/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutCity(int id, City city)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != city.CityId)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(city).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CityExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/Cities
-        [ResponseType(typeof(City))]
-        public async Task<IHttpActionResult> PostCity(City city)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Cities.Add(city);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = city.CityId }, city);
-        }
-
-        // DELETE: api/Cities/5
-        [ResponseType(typeof(City))]
-        public async Task<IHttpActionResult> DeleteCity(int id)
-        {
-            City city = await db.Cities.FindAsync(id);
-            if (city == null)
-            {
-                return NotFound();
-            }
-
-            db.Cities.Remove(city);
-            await db.SaveChangesAsync();
-
-            return Ok(city);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool CityExists(int id)
-        {
-            return db.Cities.Count(e => e.CityId == id) > 0;
-        }
     }
 }

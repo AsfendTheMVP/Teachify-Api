@@ -30,11 +30,6 @@ namespace TeachifyApi.Models
             return new ApplicationDbContext();
         }
         public System.Data.Entity.DbSet<TeachifyApi.Models.User> Users { get; set; }
-
-        public System.Data.Entity.DbSet<TeachifyApi.Models.City> Cities { get; set; }
-
-        public System.Data.Entity.DbSet<TeachifyApi.Models.Course> Courses { get; set; }
-
         public System.Data.Entity.DbSet<TeachifyApi.Models.Instructor> Instructors { get; set; }
     }
 }
