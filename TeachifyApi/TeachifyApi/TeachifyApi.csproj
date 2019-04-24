@@ -223,6 +223,15 @@
     </Compile>
     <Compile Include="Helpers\FilesHelper.cs" />
     <Compile Include="Helpers\MailHelper.cs" />
+    <Compile Include="Migrations\201904240112464_InitialCreate.cs" />
+    <Compile Include="Migrations\201904240112464_InitialCreate.Designer.cs">
+      <DependentUpon>201904240112464_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904240237066_CitiesAndCoursesAdded.cs" />
+    <Compile Include="Migrations\201904240237066_CitiesAndCoursesAdded.Designer.cs">
+      <DependentUpon>201904240237066_CitiesAndCoursesAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\City.cs" />
@@ -324,6 +333,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904240112464_InitialCreate.resx">
+      <DependentUpon>201904240112464_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904240237066_CitiesAndCoursesAdded.resx">
+      <DependentUpon>201904240237066_CitiesAndCoursesAdded.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

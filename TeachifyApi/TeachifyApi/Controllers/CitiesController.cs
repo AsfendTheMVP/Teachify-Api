@@ -29,6 +29,7 @@ namespace TeachifyApi.Controllers
             new City() {Name = "New Mexico"},
             new City() {Name = "New York"},
             new City() {Name = "Pennsylvania"},
+            new City() {Name = "Seattle"},
             new City() {Name = "Texas"},
             new City() {Name = "Washington"},
         };
